@@ -1,5 +1,5 @@
 # EVENT MONITOR MODULE
-Used for keeping track and count of rising edges on the GPIO's and notifying the appropriate API about status every 1s.
+Used for keeping track and count of rising edges on the GPIO's in 1s period and notifying the appropriate API.
 
 # SETUP:
 It is necessery to call event_monitor_init() function first, which would create a new RTOS task for main function execution and register GPIO status change callback. And reset state variables.

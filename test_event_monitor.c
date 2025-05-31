@@ -11,7 +11,7 @@ void test_MainShouldResetCounter(void)
 {
     em_edge_counter = 5;
     event_monitor_main();
-    TEST_ASSERT( em_edge_counter = 0 );
+    TEST_ASSERT( em_edge_counter == 0 );
 }
 
 // Test for GPIO callback that increments the edge counter
@@ -28,12 +28,12 @@ void test_GpioCallbackShouldIncrementCounter(void)
 // Test for GPIO callback with no change
 void test_GpioCallbackShouldNotIncrementCounterOnNoChange(void)
 {
-    em_edge_counter = 0;
+    em_edge_counter = 2;
 
     em_last_state = 0x01; // Initial state
     gpio_mask_t new_state = 0x01; // Simulate no change in GPIO state
     event_monitor_gpio_callback(new_state);
-    TEST_ASSERT_EQUAL_UINT32(0, em_edge_counter);
+    TEST_ASSERT_EQUAL_UINT32(2, em_edge_counter);
 }
 
 // Test for GPIO callback with multiple changes

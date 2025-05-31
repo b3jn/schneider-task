@@ -13,6 +13,12 @@
 void event_monitor_init(void);
 
 /**
+ * @brief Deinitializes the event monitor system.
+ * This function should be called to clean up resources used by the event monitor.
+ */
+void event_monitor_deinit(void);
+
+/**
  * @brief Starts the event monitor task.
  */
 void event_monitor_main(void);

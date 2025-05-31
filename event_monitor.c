@@ -20,11 +20,29 @@ static void event_monitor_gpio_callback(gpio_mask_t new_state);
  */
 void event_monitor_init(void)
 {
+    //initialize edge counter
+    em_last_state = 0;
+    em_edge_counter = 0;
+
     //create new rtos task for main function
     rtos_task_create(&em_task_handle, event_monitor_main, NULL);
     
     //register gpio callback
     gpio_register_callback(event_monitor_gpio_callback);
+}
+
+/**
+ * @brief Deinitializes the event monitor system.
+ * 
+ * This function should be called to clean up resources used by the event monitor.
+ */
+void event_monitor_deinit(void)
+{
+    //deinitialize resources if needed
+    //currently no resources to deinitialize
+    //if there were, we would unregister the gpio callback and delete the task
+    //gpio_unregister_callback(event_monitor_gpio_callback);
+    //rtos_task_delete(&em_task_handle);
 }
 
 /**

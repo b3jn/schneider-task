@@ -5,8 +5,8 @@
 
 /*GLOBAL VARIABLES*/
 static rtos_task_t em_task_handle;
-static uint32_t em_edge_counter = 0;
-static gpio_mask_t em_last_state = 0;
+static volatile  uint32_t em_edge_counter = 0;
+static volatile gpio_mask_t em_last_state = 0;
 
 /*LOCAL FUNCTION DECLARATIONS*/
 static void report_event_count(uint32_t count);
